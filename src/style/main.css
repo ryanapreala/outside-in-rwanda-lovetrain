@@ -1,157 +1,116 @@
-/* General styles */
+/* Reset styles */
+
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: #444;
+  background-color: #f7f7f7;
+}
+
+/* Container */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Hero */
+
+.hero {
+  background-image: url('hero.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  color: #fff;
+}
+
+/* Card gallery */
+
+.card-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card-gallery .card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-gallery .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-gallery .card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+.card-gallery .card .card-body {
+  padding: 1rem;
+}
+
+.card-gallery .card .card-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-gallery .card .card-description {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+/* Media queries */
+
+@media only screen and (max-width: 768px) {
+  .card-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
-  
-  body {
-    margin: 0;
-    font-family: sans-serif;
-    color: #222;
+
+  .card-gallery .card img {
+    height: 150px;
   }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+
+  .card-gallery .card .card-title {
+    font-size: 1.2rem;
   }
-  
-  /* Hero section */
-  .hero {
-    background-color: #222;
-    color: #fff;
-    padding: 4rem;
-    text-align: center;
-  }
-  
+
   .hero h1 {
-    margin-top: 0;
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
-  
-  .hero p {
-    font-size: 1.5rem;
-  }
-  
-  /* Product List section */
-  .product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 4rem;
-  }
-  
-  .product-card {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .product-card .details {
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
     padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
   }
-  
-  .product-card h2 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
+
+  .hero h1 {
+    font-size: 2rem;
   }
-  
-  .product-card p {
-    margin: 0;
-    font-size: 1.2rem;
-    line-height: 1.5;
-  }
-  
-  /* Order Form section */
-  .order-form {
-    margin-top: 4rem;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-  }
-  
-  .form-group label {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  
-  .form-group input[type='text'],
-  .form-group input[type='email'],
-  .form-group textarea {
-    padding: 0.5rem;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    font-size: 1.2rem;
-  }
-  
-  .form-group input[type='text'],
-  .form-group input[type='email'] {
-    height: 40px;
-  }
-  
-  .form-group textarea {
-    height: 100px;
-  }
-  
-  .form-group button {
-    padding: 0.5rem 1rem;
-    background-color: #222;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-  
-  /* Media queries */
-  @media only screen and (max-width: 768px) {
-    .hero h1 {
-      font-size: 2rem;
-    }
-  
-    .hero p {
-      font-size: 1rem;
-    }
-  
-    .product-list {
-      grid-template-columns: 1fr;
-    }
-  
-    .product-card img {
-      height: 150px;
-    }
-  
-    .product-card h2 {
-      font-size: 1.2rem;
-    }
-  
-    .product-card p {
-      font-size: 1rem;
-    }
-  }
-  
-  @media only screen and (max-width: 480px) {
-    .hero h1 {
-      font-size: 1.5rem;
-    }
-  
-    .hero p {
-      font-size: 0;
-    }
 }
