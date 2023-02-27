@@ -11,7 +11,7 @@ export const createOrder = (order) => async (dispatch) => {
     dispatch({ type: CREATE_ORDER_REQUEST });
 
     // Make a POST request to Airtable API to add the new order to the "orders" table
-    const response = await axios.post(process.env.REACT_APP_AIRTABLE_API_URL, {
+    const response = await axios.post(process.env.key4vlp0WIH1Em5oB, {
       fields: {
         senderName: order.senderName,
         senderEmail: order.senderEmail,
